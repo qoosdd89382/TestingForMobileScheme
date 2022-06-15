@@ -30,14 +30,16 @@
         //馬上投
         function btnClick() {
             const fubonMBankToNmiUrl = "fubonmbank://?menuid=MUG22";     //按鈕網址 
-            let targetUrl = fubonMBankToNmiUrl;
+            let targetUrl;
 
             let currentUrl = window.location.toString();
             if (currentUrl.indexOf("?") != -1) {   // 代表已有參數跟在後面
-                let currentParamaters = url.split("?")[1];
+                let currentParamaters = currentUrl.split("?")[1];
                 console.log('currentParamaters: ', currentParamaters);      // 測試用
                 // 因為 fubonMBankToNmiUrl 已帶有 nmi menu 參數，直接加 &
-                targetUrl += "&" + currentParamaters;
+                targetUrl = fubonMBankToNmiUrl + "&" + currentParamaters;
+            } else {
+                targetUrl = fubonMBankToNmiUrl;
             }
             console.log('targetUrl: ', targetUrl);      // 測試用
             window.location = targetUrl;
