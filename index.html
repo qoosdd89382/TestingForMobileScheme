@@ -36,7 +36,7 @@
             if (currentUrl.indexOf("?") != -1) {   // 代表已有參數跟在後面
                 let currentParamaters = url.split("?")[1];
                 console.log('currentParamaters: ', currentParamaters);      // 測試用
-                // 因為 fubonMBankToNmiUrl 已帶有奈米投 menu 參數，直接加 &
+                // 因為 fubonMBankToNmiUrl 已帶有 nmi menu 參數，直接加 &
                 targetUrl += "&" + currentParamaters;
             }
             console.log('targetUrl: ', targetUrl);      // 測試用
