@@ -13,23 +13,22 @@
     <button type="button" id="test3">測試帶入網址參數</button>
 
     <script>
-        const url = "fubonmbank://?menuId=MUG22";
+        const fubonMBankToNmiUrl = "fubonmbank://?menuId=MUG22";
 
         $('#test1').on('click', anchorHandler);
         $('#test2').on('click', windowLocHandler);
         $('#test3').on('click', btnClick);
         
         function anchorHandler() {
-            $('<a href="' + url + '"></a>')[0].click();
+            $('<a href="' + fubonMBankToNmiUrl + '"></a>')[0].click();
         }
 
         function windowLocHandler() {
-            window.location = url;
+            window.location = fubonMBankToNmiUrl;
         }
         
         //馬上投
         function btnClick() {
-            const fubonMBankToNmiUrl = "fubonmbank://?menuid=MUG22";     //按鈕網址 
             let targetUrl;
 
             let currentUrl = window.location.toString();
