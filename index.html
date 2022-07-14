@@ -12,7 +12,7 @@
     <button type="button" id="test2">按鈕2</button>
     <button type="button" id="test3">測試帶入網址參數</button>
     <button type="button" id="test4">按鈕4</button>
-    <button type="button" id="test4">按鈕5</button>
+    <button type="button" id="test5">按鈕5</button>
 
     <script>
         const fubonMBankToNmiUrl = "fubonmbank://?menuId=MUG22";
@@ -21,7 +21,7 @@
         $('#test2').on('click', windowLocHandler);
         $('#test3').on('click', btnClick);
         $('#test4').on('click', btnClickForBlankWindow);
-        $('#test4').on('click', btnClickA);
+        $('#test5').on('click', btnClickA);
         
         function anchorHandler() {
             $('<a href="' + fubonMBankToNmiUrl + '"></a>')[0].click();
