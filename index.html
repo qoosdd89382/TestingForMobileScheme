@@ -11,6 +11,8 @@
     <button type="button" id="test1">按鈕1</button>
     <button type="button" id="test2">按鈕2</button>
     <button type="button" id="test3">測試帶入網址參數</button>
+    <button type="button" id="test4">按鈕4</button>
+    <button type="button" id="test4">按鈕5</button>
 
     <script>
         const fubonMBankToNmiUrl = "fubonmbank://?menuId=MUG22";
@@ -18,6 +20,8 @@
         $('#test1').on('click', anchorHandler);
         $('#test2').on('click', windowLocHandler);
         $('#test3').on('click', btnClick);
+        $('#test4').on('click', btnClickForBlankWindow);
+        $('#test4').on('click', btnClickA);
         
         function anchorHandler() {
             $('<a href="' + fubonMBankToNmiUrl + '"></a>')[0].click();
@@ -42,6 +46,40 @@
             }
             console.log('targetUrl: ', targetUrl);      // 測試用
             window.location = targetUrl;
+        }
+        
+        
+        function btnClickForBlankWindow() {
+            let targetUrl;
+
+            let currentUrl = window.location.toString();
+            if (currentUrl.indexOf("?") != -1) {   // 代表已有參數跟在後面
+                let currentParamaters = currentUrl.split("?")[1];
+                console.log('currentParamaters: ', currentParamaters);      // 測試用
+                // 因為 fubonMBankToNmiUrl 已帶有 nmi menu 參數，直接加 &
+                targetUrl = fubonMBankToNmiUrl + "&" + currentParamaters;
+            } else {
+                targetUrl = fubonMBankToNmiUrl;
+            }
+            console.log('targetUrl: ', targetUrl);      // 測試用
+            window.open(targetUrl);
+        }
+
+        function btnClickA() {
+            let targetUrl;
+
+            let currentUrl = window.location.toString();
+            if (currentUrl.indexOf("?") != -1) {   // 代表已有參數跟在後面
+                let currentParamaters = currentUrl.split("?")[1];
+                console.log('currentParamaters: ', currentParamaters);      // 測試用
+                // 因為 fubonMBankToNmiUrl 已帶有 nmi menu 參數，直接加 &
+                targetUrl = fubonMBankToNmiUrl + "&" + currentParamaters;
+            } else {
+                targetUrl = fubonMBankToNmiUrl;
+            }
+            let a = `
+                <a href=${targetUrl} target="_blank">
+            `;
         }
     </script>
 </body>
